@@ -1,0 +1,46 @@
+/* The background image is applied to the .root style, which means it is applied to the root node of the Scene instance. */
+.root {
+     -fx-background-image: url("background.jpg"); /* The style definition consists of the name of the property (-fx-background-image) and the value for the property (url(“background.jpg”))*/
+}
+
+/*  the .label style class, which means the styles will affect all labels in the form */
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+/* .button style class selector, such that if you add a button to the form at a later date, then the new button will also use this style. */
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+/* A pseudo-class includes the selector for the class and the name for the state separated by a colon (:) */
+.button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1); /* this simply changes the buton colors upside-down */
+}
+
+/* For the style name, use the ID preceded by a number sign (#) */
+#welcome-text {
+   -fx-font-size: 32px;
+   -fx-font-family: "Arial Black";
+   -fx-font-weight: bold;
+   -fx-fill: #818181;
+   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+}
+
+#actiontarget {
+    -fx-fill: FIREBRICK;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+#actiontarget2 {
+    -fx-fill: blue;
+    -fx-text-align: right;
+}

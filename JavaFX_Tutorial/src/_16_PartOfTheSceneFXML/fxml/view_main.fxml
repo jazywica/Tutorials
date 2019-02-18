@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0"
+            xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="_16_PartOfTheSceneFXML.ScenePartController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" onAction="#closeApp" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem fx:id="view_a" mnemonicParsing="false" text="Show View A" onAction="#handleChangeView"/>
+                        <MenuItem fx:id="view_b" mnemonicParsing="false" text="Show View B" onAction="#handleChangeView"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <GridPane>
+            <VBox prefHeight="200" prefWidth="300" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER">
+                <Label text="This is the static part" textAlignment="CENTER"/>
+            </VBox>
+            <BorderPane fx:id="mainView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <center>
+                    <fx:include source="view_a.fxml"/>
+                </center>
+            </BorderPane>
+        </GridPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<fx:root type="GridPane" xmlns:fx="http://javafx.com/fxml">
+    <Label text="View D - Row 1" textAlignment="CENTER" GridPane.rowIndex="0"/>
+    <Label text="View D - Row 2" textAlignment="CENTER" GridPane.rowIndex="1"/>
+    <Label text="View D - Row 3" textAlignment="CENTER" GridPane.rowIndex="2"/>
+    <Label text="View D - Row 4" textAlignment="CENTER" GridPane.rowIndex="3"/>
+</fx:root>

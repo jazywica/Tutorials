@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import _09_CustomControlFXML.*?>
+
+<!-- The root container is defined as an instance of the javafx.scene.layout.VBox class. Note that there is no controller within the group definition -->
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml">
+
+    <TextField fx:id="textField"/>
+    <Button text="Click Me" onAction="#doSomething"/>
+
+     <!--After you create a custom control, you can use instances of this control in code or in markup, just like any other control-->
+    <!--<HBox>-->
+        <!--<CustomControl text="Hello World!"/>-->
+    <!--</HBox>-->
+
+</fx:root>

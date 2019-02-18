@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--Here we do not specify a controller because I later use the controller on the main frame (this is good for small things, but for big projects it is nice to use different controllers)-->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <Label text="View B" alignment="CENTER"/>
+    </center>
+</BorderPane>

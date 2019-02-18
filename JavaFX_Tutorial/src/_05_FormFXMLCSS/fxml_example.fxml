@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!--The fx:controller attribute is required when you specify controller-based event handlers in your markup.-->
+<!--The xmlns:fx attribute is always required and specifies the fx namespace.-->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+
+
+<GridPane fx:controller="_05_FormFXMLCSS.FXMLExampleController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="root">
+
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+    <!--<gridLinesVisible>true</gridLinesVisible>-->
+
+
+    <Text id="welcome-text" text="Welcome"
+          GridPane.columnIndex="0"
+          GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/> <!-- same as with the Java code, this is supposed to stretch the text into two columns-->
+
+    <Label text="User Name:"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="1"/>
+
+    <TextField
+        GridPane.columnIndex="1"
+        GridPane.rowIndex="1"/>
+
+    <Label text="Password:"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="2"/>
+
+    <PasswordField fx:id="passwordField"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"/>
+
+    <!--While FXML is a convenient way to define the structure of an application's user interface, it does not provide a way to implement an application's behavior-->
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="4">
+          <Button text="Sign In" onAction="#handleSubmitButtonAction"/>
+    </HBox>
+
+    <Text fx:id="actiontarget"
+          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+    <!--The @ symbol before the name of the style sheet in the URL indicates that the style sheet is in the same directory as the FXML file.-->
+    <stylesheets>
+        <URL value="@Login.css"/>
+    </stylesheets>
+
+
+</GridPane>

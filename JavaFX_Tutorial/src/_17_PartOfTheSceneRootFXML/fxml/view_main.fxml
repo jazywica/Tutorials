@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import _17_PartOfTheSceneRootFXML.ViewAController?>
+<?import _17_PartOfTheSceneRootFXML.ViewBController?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import _17_PartOfTheSceneRootFXML.ViewCController?>
+<?import _17_PartOfTheSceneRootFXML.ViewDController?>
+<fx:root prefHeight="400.0" prefWidth="400.0" stylesheets="@../css/styles.css" type="GridPane" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <!--Since we already declared what the root is in its corresponding controller, here we can directly address the grid cells-->
+    <MenuBar GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <menus>
+            <Menu mnemonicParsing="false" text="File">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close"/>
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View A-B">
+                <items>
+                    <MenuItem fx:id="view_a" mnemonicParsing="false" onAction="#handleChangeViewTabs" text="Show View A"/>
+                    <MenuItem fx:id="view_b" mnemonicParsing="false" onAction="#handleChangeViewTabs" text="Show View B"/>
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View C-D">
+                <items>
+                    <MenuItem fx:id="view_c" mnemonicParsing="false" onAction="#handleChangeViewVisibility" text="Show View C"/>
+                    <MenuItem fx:id="view_d" mnemonicParsing="false" onAction="#handleChangeViewVisibility" text="Show View D"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+    <VBox alignment="CENTER" prefHeight="200" prefWidth="400" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Label text="This is the static part" textAlignment="CENTER"/>
+    </VBox>
+
+    <!--Version 1: Manipulating object visibility directly by their tags ('tab1' and 'tab2') exported to the controller-->
+    <TabPane fx:id="firstView" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <tabs>
+            <Tab fx:id="tab1"> <!--This tab will be opened automatically as it is the first one, no startup modifications needed-->
+                <ViewAController alignment="CENTER" prefHeight="100" prefWidth="400"/>
+                <!--<fx:include fx:id="viewA" source="view_a.fxml"/>-->
+            </Tab>
+            <Tab fx:id="tab2">
+                <ViewBController alignment="CENTER" prefHeight="100" prefWidth="400"/>
+                <!--<fx:include fx:id="viewB" source="view_b.fxml"/>-->
+            </Tab>
+        </tabs>
+    </TabPane>
+
+    <!--Version 2: Manipulating object visibility by their class instances (which are given id names: viewC adn viewD) exported to the controller-->
+    <VBox fx:id="secondView" GridPane.columnIndex="0" GridPane.rowIndex="3" alignment="CENTER" prefHeight="100" prefWidth="400">
+        <ViewCController fx:id="viewC" prefHeight="100" prefWidth="400"/>
+        <!--<fx:include fx:id="viewC" source="view_c.fxml"/>-->
+
+        <ViewDController fx:id="viewD" prefHeight="100" prefWidth="400" visible="false"/> <!--this view has to be set to not visible, if not both views will overlap-->
+        <!--<fx:include fx:id="viewD" source="view_d.fxml"/>-->
+    </VBox>
+</fx:root>

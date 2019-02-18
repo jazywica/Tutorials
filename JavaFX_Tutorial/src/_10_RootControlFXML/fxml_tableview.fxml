@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import _10_RootControlFXML.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<!-- In the root version, we don't define controllers inside the FXML code -->
+<fx:root alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml" type="GridPane">
+
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+
+    <Label style="-fx-font: NORMAL 20 Tahoma;" text="Address Book" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+    <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <columns>
+            <!--Use the TableColumn class to add three columns for displaying the data: First Name, Last Name, and Email Address-->
+            <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="100">
+                <!--Cell factories are implemented by using the PropertyValueFactory class, which uses the firstName, lastName, and email properties of the table columns as references to the corresponding methods of the Person class-->
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+                <cellFactory>
+                    <!--The 'FormattedTableCellFactory' class is available because we've created it-->
+                    <FormattedTableCellFactory alignment="center"/>
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="secondNameColumn" text="Last Name" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Email Address" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="email" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+
+        <!--This is the FXML way to get data in the table-->
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <Person firstName="Jacob" lastName="Smith" email="jacob.smith@exampleXML.com"/>
+                <Person firstName="Isabella" lastName="Johnson" email="isabella.johnson@exampleXML.com"/>
+                <Person firstName="Ethan" lastName="Williams" email="ethan.williams@exampleXML.com"/>
+                <Person firstName="Emma" lastName="Jones" email="emma.jones@exampleXML.com"/>
+                <Person firstName="Michael" lastName="Brown" email="michael.brown@exampleXML.com"/>
+            </FXCollections>
+        </items>
+
+        <sortOrder>
+            <fx:reference source="firstNameColumn"/> <!--Here we reference the column ID that we want to use for sorting-->
+        </sortOrder>
+    </TableView>
+
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <TextField fx:id="firstNameField" promptText="First Name" prefWidth="90"/>
+        <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="90"/>
+        <TextField fx:id="emailField" promptText="email" prefWidth="150"/>
+        <Button text="Add" onAction="#addPerson"/>
+    </HBox>
+
+</fx:root>
